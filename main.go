@@ -23,11 +23,11 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case ClearErrorMsg:
 		m.ClearErrCommand()
 	case ThrowErrorMsg:
-		m.ThroeErrorCommand()
+		return m.ThroeErrorCommand()
 	case CompleteMsg:
 		m.OpenDirCommand()
 	case spinner.TickMsg:
-		m.ThickCommand(msg)
+		return m.ThickCommand(msg)
 	}
 
 	var cmd tea.Cmd
