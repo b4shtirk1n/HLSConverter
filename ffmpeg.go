@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"os/exec"
 )
 
@@ -11,6 +12,12 @@ func (m Model) Convert() {
 
 	if m.IsGPU {
 		args = "hevc_nvenc tag:v hvc1 profile fast"
+	}
+
+	os.Mkdir(m.OutPath, 0750)
+	if m.Err = os.Chdir(m.OutPath); m.Err != nil {
+		p.Send(ThrowErrorMsg{})
+		return
 	}
 
 	cmd = exec.Command("ffmpeg", "-y", "-i",
@@ -31,9 +38,12 @@ func (m Model) Convert() {
 		"-var_stream_map", "v:0,a:0,name:360p v:1,a:1,name:480p v:2,a:2,name:720p "+
 			"v:3,a:3,name:1080p v:4,a:4,name:1440p v:5,a:5,name:2160p",
 		"-hls_list_size", "0", "-f", "hls", "-hls_time", "5", "-hls_playlist_type", "vod",
-		"-master_pl_name", m.OutPath+"/"+m.OutPath+"-pl.m3u8", m.OutPath+"/"+m.OutPath+"-%v.m3u8")
+		"-master_pl_name", m.OutPath+"-pl.m3u8", m.OutPath+"-%v.m3u8")
 
-	if m.Err = cmd.Run(); m.Err != nil {
+	m.Err = cmd.Run()
+	os.Chdir("../")
+
+	if m.Err != nil {
 		p.Send(ThrowErrorMsg{})
 		return
 	}
