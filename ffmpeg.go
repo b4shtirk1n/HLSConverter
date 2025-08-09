@@ -44,6 +44,7 @@ func (m Model) Convert() {
 	os.Chdir("../")
 
 	if m.Err != nil {
+		os.Remove(m.OutPath)
 		p.Send(ThrowErrorMsg{})
 		return
 	}
