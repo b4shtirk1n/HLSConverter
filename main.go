@@ -23,16 +23,11 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case ClearErrorMsg:
 		m.ClearErrCommand()
 	case ThrowErrorMsg:
-		m.Err = errors.ErrUnsupported
-		m.Processing = false
-		m.SelectedFile = ""
-		return m, ClearErrorAfter(2 * time.Second)
+		m.ThroeErrorCommand()
 	case CompleteMsg:
-		m.Complete = true
+		m.OpenDirCommand()
 	case spinner.TickMsg:
-		var cmd tea.Cmd
-		m.Spinner, cmd = m.Spinner.Update(msg)
-		return m, cmd
+		m.ThickCommand(msg)
 	}
 
 	var cmd tea.Cmd
