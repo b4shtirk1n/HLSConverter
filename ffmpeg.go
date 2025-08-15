@@ -11,7 +11,7 @@ func (m Model) Convert() {
 	args := "libx265"
 
 	if m.IsGPU {
-		args = "hevc_nvenc tag:v hvc1 profile fast"
+		args = "hevc_nvenc -tag:v hvc1 -profile fast"
 	}
 
 	os.Mkdir(m.OutPath, 0750)
