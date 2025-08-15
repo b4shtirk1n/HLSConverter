@@ -36,7 +36,7 @@ func InitModel() Model {
 	s.Style = SpinnerStyle
 
 	fp := filepicker.New()
-	fp.CurrentDirectory, _ = os.UserHomeDir()
+	fp.CurrentDirectory, _ = os.Getwd()
 
 	return Model{s, fp, "", guid.NewString(), false, false, false, os.Args[len(os.Args)-1] == "GPU", nil}
 }
