@@ -17,6 +17,10 @@ func (m Model) KeyCommand(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 		}
 		return m, tea.Quit
 	case "enter", " ":
+		if m.Complete {
+			m.Complete = false
+			return m, nil
+		}
 		if !m.Processing && m.SelectedFile != "" {
 			m.Processing = true
 			m.OutPath = guid.NewString()
