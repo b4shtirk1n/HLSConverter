@@ -73,6 +73,7 @@ func (m Model) View() string {
 }
 
 func main() {
+	// log.Print(exec.Command("nvcc", "--version").Output())
 	p = tea.NewProgram(InitModel())
 	if _, err := p.Run(); err != nil {
 		log.Printf("Alas, there's been an error: %v", err)
