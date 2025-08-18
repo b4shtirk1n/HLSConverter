@@ -23,7 +23,7 @@ func (m Model) Convert() {
 			"-map", "0:v:0", "-map", "0:a:0",
 			"-map", "0:v:0", "-map", "0:a:0",
 			"-map", "0:v:0", "-map", "0:a:0",
-			"-c:v", "hevc_nvenc", "-tag:v", "hvc1", "-crf", "26", "-c:a", "aac", "-ar", "48000",
+			"-c:v", "hevc_nvenc", "-crf", "26", "-c:a", "aac", "-ar", "48000",
 			"-filter:v:0", "scale=w=640:h=360", "-b:v", "1200k", "-minrate:v:0", "1200k", "-b:a:0", "128k",
 			"-filter:v:1", "scale=w=854:h=480", "-b:v", "2000k", "-minrate:v:1", "2000k", "-b:a:1", "128k",
 			"-filter:v:2", "scale=w=1280:h=720", "-b:v", "6000k", "-minrate:v:2", "6000k", "-b:a:2", "128k",
