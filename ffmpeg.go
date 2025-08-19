@@ -28,8 +28,8 @@ func (m Model) Convert() {
 			"-filter:v:1", "scale=w=854:h=480", "-b:v", "2000k", "-minrate:v:1", "2000k", "-b:a:1", "128k",
 			"-filter:v:2", "scale=w=1280:h=720", "-b:v", "6000k", "-minrate:v:2", "6000k", "-b:a:2", "128k",
 			"-filter:v:3", "scale=w=1920:h=1080", "-b:v", "10000k", "-minrate:v:3", "10000k", "-b:a:3", "192k",
-			"-filter:v:4", "scale=w=2560:h=1440", "-b:v", "18000k", "-minrate:v:4", "18000k", "-b:a:4", "192k",
-			"-filter:v:5", "scale=w=3840:h=2160", "-b:v", "25000k", "-minrate:v:5", "25000k", "-b:a:5", "192k",
+			"-filter:v:4", "scale=w=2560:h=1440", "-b:v", "15000k", "-minrate:v:4", "15000k", "-b:a:4", "192k",
+			"-filter:v:5", "scale=w=3840:h=2160", "-b:v", "20000k", "-minrate:v:5", "20000k", "-b:a:5", "192k",
 			"-var_stream_map", "v:0,a:0,name:360p v:1,a:1,name:480p v:2,a:2,name:720p "+
 				"v:3,a:3,name:1080p v:4,a:4,name:1440p v:5,a:5,name:2160p",
 			"-hls_list_size", "0", "-f", "hls", "-hls_time", "5", "-hls_playlist_type", "vod",
@@ -48,8 +48,8 @@ func (m Model) Convert() {
 			"-filter:v:1", "scale=w=854:h=480", "-b:v", "2000k", "-minrate:v:1", "2000k", "-b:a:1", "128k",
 			"-filter:v:2", "scale=w=1280:h=720", "-b:v", "6000k", "-minrate:v:2", "6000k", "-b:a:2", "128k",
 			"-filter:v:3", "scale=w=1920:h=1080", "-b:v", "10000k", "-minrate:v:3", "10000k", "-b:a:3", "192k",
-			"-filter:v:4", "scale=w=2560:h=1440", "-b:v", "18000k", "-minrate:v:4", "18000k", "-b:a:4", "192k",
-			"-filter:v:5", "scale=w=3840:h=2160", "-b:v", "25000k", "-minrate:v:5", "25000k", "-b:a:5", "192k",
+			"-filter:v:4", "scale=w=2560:h=1440", "-b:v", "15000k", "-minrate:v:4", "15000k", "-b:a:4", "192k",
+			"-filter:v:5", "scale=w=3840:h=2160", "-b:v", "20000k", "-minrate:v:5", "20000k", "-b:a:5", "192k",
 			"-var_stream_map", "v:0,a:0,name:360p v:1,a:1,name:480p v:2,a:2,name:720p "+
 				"v:3,a:3,name:1080p v:4,a:4,name:1440p v:5,a:5,name:2160p",
 			"-hls_list_size", "0", "-f", "hls", "-hls_time", "5", "-hls_playlist_type", "vod",
